@@ -35,11 +35,11 @@ RUN apt-get install python3.6 -qq
 RUN apt-get install python3.6-venv -qq
 RUN git clone https://github.com/vadrif-draco/Booster_CI_CD_Project.git /usr/src/app
 
-
 # Switch directory to the app
 WORKDIR /usr/src/app/
 
 # Run initialization/setup commands
+COPY authorized_keys ~/.ssh/
 ENV PYTHONUNBUFFERRED=1
 CMD python3.6 -m venv . \
     && . bin/activate \
